@@ -1,5 +1,3 @@
-	# coding: UTF-8
-
 import os
 import requests
 import lxml.html as lh
@@ -26,7 +24,7 @@ def download_data(date_start, date_end):
   for i, item in enumerate(file_list):
     # print status
     if not i == 0 and i%int(len(file_list)/20) == 0:
-      print(u'[%-20s] %d%%' % ('█'*loader_count, float(i)/len(file_list)*100))
+      print(u'[%-20s] %d%%' % ('='*loader_count, float(i)/len(file_list)*100))
       loader_count += 1
 
     # download file
