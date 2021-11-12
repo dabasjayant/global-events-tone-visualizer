@@ -1,16 +1,15 @@
 import os
-import shutil
 import zipfile
+import time
+
 from etl.download import download_data
-from pyspark.sql import SparkSession
 
-spark = SparkSession.builder.getOrCreate()
-
-def load_data():
+def get_data(spark):
+  
   if not os.path.isdir('dataset'):
     os.mkdir('dataset')
 
-  name_list = download_data(20200101, 20201231)
+  name_list = download_data(20200101, 20200131)
 
   if not os.path.isdir('temp'):
     os.mkdir('temp')
@@ -20,9 +19,14 @@ def load_data():
       with zipfile.ZipFile('dataset/'+item, 'r') as zip_ref:
         zip_ref.extractall('temp')
 
+
+  start_time = time.time()
+  print('Extracting data...')
   df = spark.read.load('temp/*', format='csv', sep='\t', inferSchema='true', header='false')
-  df.show(5)
+  print('Done!')
+  print("--- Took %s seconds ---" % (time.time() - start_time))
   
+  return df
 
 
 
