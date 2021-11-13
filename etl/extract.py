@@ -22,7 +22,7 @@ def get_data(spark):
 
   start_time = time.time()
   print('Extracting data...')
-  df = spark.read.load('temp/2020*', format='csv', sep='\t', inferSchema='true', header='false')
+  df = spark.read.load('temp/*', format='csv', sep='\t', inferSchema='true', header='false')
   print('Done!')
   print("--- Took %s seconds ---" % (time.time() - start_time))
   

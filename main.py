@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from requests.api import head
+import shutil
 from pyspark.sql import SparkSession
 
 sys.dont_write_bytecode = True
@@ -18,7 +18,9 @@ if __name__ == '__main__':
     data = transform.filter_data(raw_data)
 
     # Save state
-    data.write.option('header',True).option('delimiter','\t').csv('processed_data')
+    if os.path.exists('processed_data'):
+      shutil.rmtree('processed_data')
+    data.repartition(1).write.option('header','true').option('delimiter','\t').csv('processed_data')
   else:
     # Load saved state
     start_time = time.time()
@@ -31,7 +33,7 @@ if __name__ == '__main__':
   data.show(5)
   print((data.count(), len(data.columns)))
 
-  # Load data in classifier
+  # Load data
 
 
   # Simulate
