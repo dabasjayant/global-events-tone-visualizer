@@ -9,7 +9,7 @@ def get_data(spark):
   if not os.path.isdir('dataset'):
     os.mkdir('dataset')
 
-  name_list = download_data(20200101, 20200131)
+  name_list = download_data(20200101, 20201231)
 
   if not os.path.isdir('temp'):
     os.mkdir('temp')
@@ -22,7 +22,7 @@ def get_data(spark):
 
   start_time = time.time()
   print('Extracting data...')
-  df = spark.read.load('temp/*', format='csv', sep='\t', inferSchema='true', header='false')
+  df = spark.read.load('temp/2020*', format='csv', sep='\t', inferSchema='true', header='false')
   print('Done!')
   print("--- Took %s seconds ---" % (time.time() - start_time))
   

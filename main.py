@@ -1,9 +1,9 @@
 import os
 import sys
 import time
-
 from requests.api import head
 from pyspark.sql import SparkSession
+
 sys.dont_write_bytecode = True
 
 from etl import extract, transform, load
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     data = transform.filter_data(raw_data)
 
     # Save state
-    data.write.option('header','true').csv('processed_data')
+    data.write.option('header',True).option('delimiter','\t').csv('processed_data')
   else:
     # Load saved state
     start_time = time.time()
