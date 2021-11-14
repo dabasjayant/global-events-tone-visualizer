@@ -2,6 +2,7 @@ from pyspark.sql.window import Window
 from pyspark.sql.functions import rank, col
 
 from etl.crawler import scrape
+from etl.autosave import save
 
 def filter_data(df):
   print('Processing data...')
@@ -12,6 +13,9 @@ def filter_data(df):
 
   terms = ['coronavirus','covid','distancing','epidemic','health','hygiene','immunity','issolation','medical','pandemic','plasma','quarantine','recover','respiratory','restriction','sars','test','treatment','vaccine','virus','who']
   df = df.filter(df.source_url.rlike('|'.join(terms)))
+  
+  # Save data state
+  save()
 
   # # Web scraping to improve performance
   #

@@ -1,5 +1,7 @@
 ###### Requirements without Version Specifiers ######
+glob2
 lxml
+pandas
 pyspark
 requests
 urllib3
