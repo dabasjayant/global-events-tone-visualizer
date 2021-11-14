@@ -7,6 +7,7 @@ from pyspark.sql import SparkSession
 sys.dont_write_bytecode = True
 
 from etl import extract, transform, load
+from etl.autosave import save
 
 if __name__ == '__main__':
   spark = SparkSession.builder.getOrCreate()
@@ -21,6 +22,8 @@ if __name__ == '__main__':
     if os.path.exists('processed_data'):
       shutil.rmtree('processed_data')
     data.repartition(1).write.option('header','true').option('delimiter','\t').csv('processed_data')
+    # Save data state
+    save()
   else:
     # Load saved state
     start_time = time.time()
@@ -34,6 +37,6 @@ if __name__ == '__main__':
   print((data.count(), len(data.columns)))
 
   # Load data
-
+  load.load_data()
 
   # Simulate

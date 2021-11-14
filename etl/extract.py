@@ -9,7 +9,7 @@ def get_data(spark):
   if not os.path.isdir('dataset'):
     os.mkdir('dataset')
 
-  name_list = download_data(20200101, 20201231)
+  name_list = download_data(20190601, 20211114)
 
   if not os.path.isdir('temp'):
     os.mkdir('temp')
