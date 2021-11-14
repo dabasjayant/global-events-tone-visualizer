@@ -6,9 +6,8 @@ Global Database of Events, Language and Tone (<a href="https://www.gdeltproject.
 Data format is well explained in the following <a href="http://data.gdeltproject.org/documentation/GDELT-Event_Codebook-V2.0.pdf">codebook</a>.
 
 ### Note
-- Unzip `processed_data.csv.zip` in project root to save time and resources.
-- If `processed_data.csv` is not found then program will generate CSV files at `processed_data/*.csv`
-- Merge all CSV data under `processed_data` directory using a third-party tool and output as `processed_data.csv` (This process will be automated in future updates).
+- Unzip `processed_data.csv.zip` in project root to save time and resources. Please ensure that it unzips to a file named `processed_data.csv`
+- If `processed_data.csv` is not found then program will automatically generate it during execution.
 
 ## Steps
 1. Run `python -m pip install -r requirements.txt` to install the required packages. Windows users can run `py -m pip install -r requirements.txt`.
