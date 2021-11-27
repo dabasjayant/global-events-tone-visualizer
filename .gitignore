@@ -1,3 +1,9 @@
+# Dataset files
+dataset/
+temp/
+processed_data/
+processed_data.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +133,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Miscellaneous
+.DS_Store

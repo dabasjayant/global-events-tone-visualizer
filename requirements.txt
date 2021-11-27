@@ -1,0 +1,11 @@
+###### Requirements without Version Specifiers ######
+glob2
+lxml
+pandas
+pyspark
+requests
+urllib3
+
+###### Requirements with Version Specifiers ######
+#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
+# docopt == 0.6.1             # Version Matching. Must be version 0.6.1python
