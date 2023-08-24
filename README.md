@@ -4,7 +4,7 @@ A simulator to visualize global events and their tone.
 ![insights_hotspot_4_max_news_events](https://user-images.githubusercontent.com/22005866/143729754-75c9922b-b45d-4b7e-81a6-1e563f0c3d1f.png)
 
 ## Live Demo
-Check out the <a href="https://jayant11.github.io/global-events-tone-visualizer/">Live Demo</a>!
+Check out the <a href="https://dabasjayant.github.io/global-events-tone-visualizer/">Live Demo</a>!
 
 ## Dataset
 Global Database of Events, Language and Tone (<a href="https://www.gdeltproject.org/data.html#rawdatafiles">GDELT</a>)
